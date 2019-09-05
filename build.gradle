@@ -13,9 +13,11 @@ repositories {
 }
 
 dependencies {
+    // Servlet
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
     // Spring Framework
     compile group: 'org.springframework', name: 'spring-core', version: '5.1.9.RELEASE'
-    compile group: 'org.springframework', name: 'spring-web', version: '5.1.9.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.9.RELEASE'
     compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.9.RELEASE'
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.9.RELEASE'
     // Logging (Log4j2)
