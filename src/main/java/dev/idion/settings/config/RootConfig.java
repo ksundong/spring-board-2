@@ -1,19 +1,17 @@
 package dev.idion.settings.config;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:config.properties")
 public class RootConfig {
-	@Value("${jdbc.driver}")
-	private String driver;
-
 	@Value("${jdbc.url}")
 	private String url;
 
@@ -25,13 +23,15 @@ public class RootConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(driver);
-		dataSource.setUrl(url);
-		dataSource.setUsername(username);
-		dataSource.setPassword(password);
+		HikariConfig config = new HikariConfig();
+		config.setJdbcUrl(url);
+		config.setUsername(username);
+		config.setPassword(password);
+		config.addDataSourceProperty("cachePrepStmts", "true");
+		config.addDataSourceProperty("prepStmtCacheSize", "250");
+		config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
-		return dataSource;
+		return new HikariDataSource(config);
 	}
 
 }
