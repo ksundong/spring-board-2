@@ -6,6 +6,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
 public class BoardWebAppInitializer implements WebApplicationInitializer {
@@ -14,7 +15,7 @@ public class BoardWebAppInitializer implements WebApplicationInitializer {
 	private static final String MAPPING_URL = "/*";
 
 	@Override
-	public void onStartup(javax.servlet.ServletContext servletContext) {
+	public void onStartup(ServletContext servletContext) {
 		WebApplicationContext context = getContext();
 		servletContext.addListener(new ContextLoaderListener(context));
 		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
