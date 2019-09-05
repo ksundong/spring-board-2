@@ -2,6 +2,7 @@ package dev.idion.board.controller;
 
 import dev.idion.settings.config.RootConfig;
 import dev.idion.settings.config.ServletConfig;
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {RootConfig.class, ServletConfig.class})
 @WebAppConfiguration
+@Log4j2
 public class BoardControllerTest {
 	@InjectMocks
 	private BoardController boardController;
@@ -34,6 +36,7 @@ public class BoardControllerTest {
 
 	@Test
 	void testBoardController() throws Exception {
+		log.info("Test Initialized");
 		mockMvc.perform(get("/board")).andExpect(status().isOk());
 	}
 }
