@@ -23,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 @Log4j2
 public class BoardControllerTest {
+
 	@InjectMocks
 	private BoardController boardController;
 
@@ -39,4 +40,5 @@ public class BoardControllerTest {
 		log.info("Test Initialized");
 		mockMvc.perform(get("/board")).andExpect(status().isOk());
 	}
+
 }
