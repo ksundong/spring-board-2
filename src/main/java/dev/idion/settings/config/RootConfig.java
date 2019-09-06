@@ -14,6 +14,9 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource("classpath:config.properties")
 public class RootConfig {
+	@Value("${jdbc.driver}")
+	private String driver;
+
 	@Value("${jdbc.url}")
 	private String url;
 
@@ -26,6 +29,7 @@ public class RootConfig {
 	@Bean
 	public DataSource dataSource() {
 		HikariConfig config = new HikariConfig();
+		config.setDriverClassName(driver);
 		config.setJdbcUrl(url);
 		config.setUsername(username);
 		config.setPassword(password);
@@ -41,4 +45,5 @@ public class RootConfig {
 		factoryBean.setDataSource(dataSource());    // SqlSessionFactory needs DataSource
 		return factoryBean.getObject();
 	}
+
 }
