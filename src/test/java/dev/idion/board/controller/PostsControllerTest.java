@@ -3,6 +3,7 @@ package dev.idion.board.controller;
 import dev.idion.settings.config.RootConfig;
 import dev.idion.settings.config.ServletConfig;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,18 +22,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {RootConfig.class, ServletConfig.class})
 @WebAppConfiguration
-@Log4j2
-public class BoardControllerTest {
+@Slf4j
+public class PostsControllerTest {
 
 	@InjectMocks
-	private BoardController boardController;
+	private PostsController postsController;
 
 	private MockMvc mockMvc;
 
 	@BeforeEach
 	void setUp() {
 		MockitoAnnotations.initMocks(this);
-		mockMvc = MockMvcBuilders.standaloneSetup(boardController).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(postsController).build();
 	}
 
 	@Test
