@@ -1,0 +1,4 @@
+USE board;
+INSERT INTO `user` (`login_id`, `user_name`, `user_password`, `email`, `authentication`, `authorization`, `retry_count`, `password_reset`, `delete`) VALUES ('admin', 'Administrator', 'qwer1234', 'admin@idion.dev', 0, 0, 0, 0, 0);
+INSERT INTO `posts` (`parent_id`, `depth`, `board_id`, `subject`, `content`, `created_datetime`, `created_user_id`, `updated_datetime`, `updated_user_id`, `hit`, `delete`, `thumbnail_id`, `file_id`) VALUES (0, 0, 1, 'Hello, World', 'Hello, World!! I\'m Administrator.', '2019-09-06 11:45:07', 1, '2019-09-06 11:45:07', 1, 0, 0, NULL, NULL);
+INSERT INTO `posts` (`parent_id`, `depth`, `board_id`, `subject`, `content`, `created_datetime`, `created_user_id`, `updated_datetime`, `updated_user_id`, `hit`, `delete`, `thumbnail_id`, `file_id`) VALUES (0, 0, 1, 'Hello, Users', 'This is Lolem Ipsum Data. It\'s only for testing.', '2019-09-06 11:46:25', 1, '2019-09-06 11:46:25', 1, 0, 0, NULL, NULL);
