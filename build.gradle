@@ -38,4 +38,8 @@ dependencies {
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.3'
     // HikariCP
     compile group: 'com.zaxxer', name: 'HikariCP', version: '3.3.1'
+    // MyBatis
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.5.2'
+    // MyBatisSpring
+    compile group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.2'
 }

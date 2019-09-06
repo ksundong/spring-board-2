@@ -18,6 +18,8 @@
  - Commons DBCP 1.4 (2019.09.06)
  - MariaDB Connector 2.4.3 (2019.09.06)
  - HikariCP 3.3.1 (2019.09.06)
+ - MyBatis 3.5.2 (2019.09.06)
+ - MyBatis-Spring 2.0.2 (2019.09.06)
  
 ## Project Goal
 
