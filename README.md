@@ -14,6 +14,9 @@
  - Lombok 1.18.8 (2019.09.05)
  - JUnit5 5.5.1 (2019.09.05)
  - Mockito 1.10.19 (2019.09.05)
+ - Commons DBCP 1.4 (2019.09.06)
+ - MariaDB Connector 2.4.3 (2019.09.06)
+ - HikariCP 3.3.1 (2019.09.06)
  
 ## Project Goal
 
