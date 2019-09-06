@@ -20,6 +20,7 @@
  - HikariCP 3.3.1 (2019.09.06)
  - MyBatis 3.5.2 (2019.09.06)
  - MyBatis-Spring 2.0.2 (2019.09.06)
+ - Jstl 1.2 (2019.09.06)
  
 ## Project Goal
 

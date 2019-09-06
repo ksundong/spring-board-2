@@ -15,6 +15,8 @@ repositories {
 dependencies {
     // Servlet
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    // Jstl
+    compile group: 'javax.servlet.jsp.jstl', name: 'jstl-api', version: '1.2'
     // Spring Framework
     compile group: 'org.springframework', name: 'spring-core', version: '5.1.9.RELEASE'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.9.RELEASE'
