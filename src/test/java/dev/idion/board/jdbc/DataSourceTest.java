@@ -3,7 +3,7 @@ package dev.idion.board.jdbc;
 import dev.idion.settings.config.RootConfig;
 import dev.idion.settings.config.ServletConfig;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {RootConfig.class, ServletConfig.class})
 @WebAppConfiguration
-@Log4j2
+@Slf4j
 class DataSourceTest {
 
 	@Setter(onMethod_ = { @Autowired })
@@ -33,7 +33,7 @@ class DataSourceTest {
 	@Test
 	void testConnection() {
 		try (Connection connection = dataSource.getConnection()) {
-			log.info(connection);
+			log.info(String.valueOf(connection));
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
@@ -44,8 +44,8 @@ class DataSourceTest {
 		try (SqlSession session = sqlSessionFactory.openSession();
 			 Connection connection = session.getConnection();
 			) {
-			log.info(session);
-			log.info(connection);
+			log.info(String.valueOf(session));
+			log.info(String.valueOf(connection));
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
