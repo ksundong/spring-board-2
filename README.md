@@ -23,6 +23,7 @@
  - Jstl 1.2 (2019.09.06)
  - JSP-API 2.0 (2019.09.06)
  - Log4Jdbc-Log4J2 1.16 (2019.09.09)
+ - BootStrap 4.3.1 (2019.09.09)
  
 ## Project Goal
 
