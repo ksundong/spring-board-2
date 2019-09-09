@@ -6,24 +6,26 @@
 </div>
 <div class="container">
 	<table class="table table-hover">
-		<thead>
+		<thead class="thead-dark">
 		<tr>
-			<th>No</th>
-			<th>Subject</th>
-			<th>Writer</th>
-			<th>Hit</th>
-			<th>Datetime</th>
+			<th scope="col" class="text-center">No</th>
+			<th scope="col" class="text-center">Subject</th>
+			<th scope="col" class="text-center">Writer</th>
+			<th scope="col" class="text-center">Hit</th>
+			<th scope="col" class="text-center">Datetime</th>
 		</tr>
 		</thead>
+		<tbody>
 		<c:forEach items="${list}" var="posts">
 			<tr>
-				<td><c:out value="${posts.id}"/></td>
+				<th scope="row" class="text-center"><c:out value="${posts.id}"/></th>
 				<td><c:out value="${posts.subject}"/></td>
-				<td><c:out value="${posts.user_name}"/></td>
-				<td><c:out value="${posts.hit}"/></td>
-				<td><c:out value="${posts.updated_datetime}"/></td>
+				<td class="text-center"><c:out value="${posts.user_name}"/></td>
+				<td class="text-center"><c:out value="${posts.hit}"/></td>
+				<td class="text-center"><c:out value="${posts.updated_datetime}"/></td>
 			</tr>
 		</c:forEach>
+		</tbody>
 	</table>
 	
 	<button class="btn btn-primary float-right">Write</button>
