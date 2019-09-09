@@ -5,7 +5,7 @@
 	<h1 class="display-4">Write</h1>
 </div>
 <div class="container">
-	<form>
+	<form action="/board/insertpost" method="post">
 		<div class="form-row">
 			<div class="form-group col-md-8">
 				<label for="subject">Subject</label>
@@ -20,8 +20,8 @@
 			<label for="content">Content</label>
 			<textarea class="form-control" id="content" name="content" rows="20"></textarea>
 		</div>
+		<button class="btn btn-primary float-right" id="postbutton">Post</button>
 	</form>
-	<button class="btn btn-primary float-right" id="postbutton">Post</button>
 </div>
 <!-- Optional Javascript -->
 <jsp:include page="/WEB-INF/include/bottom.jsp" />

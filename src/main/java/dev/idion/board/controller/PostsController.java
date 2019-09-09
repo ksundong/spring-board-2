@@ -4,10 +4,14 @@ import dev.idion.board.service.PostsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/board/*")
@@ -31,4 +35,25 @@ public class PostsController {
 		return new ModelAndView("writeform");
 	}
 
+	@PostMapping(value = "/insertpost")
+	public ModelAndView insertPost(HttpServletRequest request) {
+		Map<String, Object> param = new HashMap<>();
+		requestParamMap(request, param);
+
+		log.info("Start insertPost, Subject: " + param.get("subject")
+				+ " Writer: " + param.get("writer")
+				+ " Content: " + param.get("content"));
+		try {
+			postsService.insertPost(param);
+		} catch (Exception e) {
+			log.error(String.valueOf(e));
+		}
+		return new ModelAndView("redirect:/board/");
+	}
+
+	private void requestParamMap(HttpServletRequest request, Map<String, Object> param) {
+		for (String s : request.getParameterMap().keySet()) {
+			param.put(s, request.getParameter(s));
+		}
+	}
 }

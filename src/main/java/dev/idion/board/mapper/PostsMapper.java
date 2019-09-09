@@ -7,4 +7,6 @@ public interface PostsMapper {
 
 	List<Map<String, Object>> selectPostList();
 
+	int insertPost(Map<String, Object> map);
+
 }

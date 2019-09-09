@@ -15,4 +15,21 @@
          AND pst.updated_user_id = usr.user_id
        ORDER BY id DESC
   </select>
+  
+  <insert id="insertPost" parameterType="HashMap">
+      INSERT INTO posts (
+                           parent_id, depth, board_id
+                         , subject, content
+                         , created_datetime, created_user_id
+                         , updated_datetime, updated_user_id
+                         , hit, `delete`
+                        )
+      VALUES (
+                0, 0, 1
+              , #{subject}, #{content}
+              , NOW(), (SELECT user_id FROM user WHERE user_name = #{writer})
+              , NOW(), (SELECT user_id FROM user WHERE user_name = #{writer})
+              , 0, 0
+             )
+  </insert>
 </mapper>
