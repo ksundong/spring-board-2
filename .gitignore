@@ -166,3 +166,7 @@ gradle-app.setting
 **/build/
 
 # End of https://www.gitignore.io/api/macos,gradle,windows,java-web,intellij+all
+
+### IntelliJ HotSwap ###
+src/main/webapp/WEB-INF/lib/
+src/main/webapp/WEB-INF/classes/
