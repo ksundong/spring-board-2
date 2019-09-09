@@ -21,10 +21,14 @@ public class PostsController {
 	public ModelAndView list() {
 		log.info("Access Post List");
 		ModelAndView modelAndView = new ModelAndView("posts");
-
 		modelAndView.addObject("list", postsService.selectPostList());
-
 		return modelAndView;
+	}
+
+	@GetMapping(value = "/writeform")
+	public ModelAndView writeForm() {
+		log.info("Access Write Form");
+		return new ModelAndView("writeform");
 	}
 
 }

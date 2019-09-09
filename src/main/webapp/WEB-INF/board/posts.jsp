@@ -28,7 +28,12 @@
 		</tbody>
 	</table>
 	
-	<button class="btn btn-primary float-right">Write</button>
+	<button class="btn btn-primary float-right" id="writebutton">Write</button>
 </div>
 <!-- Optional Javascript -->
+<script type="text/javascript">
+	document.getElementById("writebutton").onclick = function () {
+		location.href = "/board/writeform"
+	}
+</script>
 <jsp:include page="/WEB-INF/include/bottom.jsp" />

@@ -42,7 +42,7 @@ public class PostsControllerTest {
 	}
 
 	@Test
-	void testBoardController() throws Exception {
+	void accessPostListTest() throws Exception {
 		log.info("Test Initialized");
 		mockMvc.perform(get("/board/")).andDo(print())
 				.andExpect(status().isOk())
@@ -56,6 +56,14 @@ public class PostsControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(view().name("posts"))
 				.andExpect(model().attributeExists("list"));
+	}
+
+	@Test
+	void accessWriteFormTest() throws Exception {
+		log.info("Test Initialized");
+		mockMvc.perform(get("/board/writeform/")).andDo(print())
+				.andExpect(status().isOk())
+				.andExpect(view().name("writeform"));
 	}
 
 }
