@@ -46,4 +46,6 @@ dependencies {
     compile group: 'org.mybatis', name: 'mybatis', version: '3.5.2'
     // MyBatisSpring
     compile group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.2'
+    // Log4Jdbc
+    compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
 }

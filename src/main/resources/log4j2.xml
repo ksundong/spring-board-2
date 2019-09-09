@@ -7,8 +7,24 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="com.my.web" level="debug"/>
+        <Logger name="dev.idion.board" level="trace"/>
         <Logger name="org.springframework" level="warn"/>
+        <!-- Log4Jdbc -->
+        <Logger name="log4jdbc.log4j2" additivity="false" level="error">
+            <appender-ref ref="Console" />
+        </Logger>
+        <!-- preparedStatement Log Only -->
+        <Logger name="jdbc.sqlonly" level="off" />
+        <!-- SQL statement & Query executing time -->
+        <Logger name="jdbc.sqltiming" level="info" />
+        <!-- Whole JDBC Information Exclude ResultSet -->
+        <Logger name="jdbc.audit" level="off" />
+        <!-- Whole JDBC Information Include ResultSet -->
+        <Logger name="jdbc.resultset" level="off" />
+        <!-- ResultSet -->
+        <Logger name="jdbc.resultsettable" level="off" />
+        <!-- Connection Details -->
+        <Logger name="jdbc.connection" level="off" />
         <Root level="info">
             <AppenderRef ref="Console"/>
         </Root>
