@@ -24,7 +24,7 @@
 		<tr>
 			<td><c:out value="${posts.id}" /></td>
 			<td><c:out value="${posts.subject}" /></td>
-			<td><c:out value="${posts.updated_user_id}" /></td>
+			<td><c:out value="${posts.user_name}" /></td>
 			<td><c:out value="${posts.hit}" /></td>
 			<td><c:out value="${posts.updated_datetime}" /></td>
 		</tr>

@@ -4,13 +4,15 @@
          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dev.idion.board.mapper.PostsMapper">
   <select id="selectPostList" resultType="HashMap">
-      SELECT  id
-             ,subject
-             ,updated_datetime
-             ,updated_user_id
-             ,hit
-        FROM posts
+      SELECT  pst.id
+             ,pst.subject
+             ,DATE_FORMAT(pst.updated_datetime, "%Y-%m-%d %H:%i:%s") AS updated_datetime
+             ,usr.user_name
+             ,pst.hit
+        FROM posts pst
+            ,user  usr
        WHERE 1 = 1
+         AND pst.updated_user_id = usr.user_id
        ORDER BY id DESC
   </select>
 </mapper>
