@@ -4,8 +4,13 @@
          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dev.idion.board.mapper.PostsMapper">
   <select id="selectPostList" resultType="HashMap">
-      SELECT *
+      SELECT  id
+             ,subject
+             ,updated_datetime
+             ,updated_user_id
+             ,hit
         FROM posts
        WHERE 1 = 1
+       ORDER BY id DESC
   </select>
 </mapper>
