@@ -17,7 +17,7 @@
 		</thead>
 		<tbody>
 		<c:forEach items="${list}" var="posts">
-			<tr>
+			<tr id="${posts.id}" onclick="viewpost(this.id)">
 				<th scope="row" class="text-center"><c:out value="${posts.id}"/></th>
 				<td><c:out value="${posts.subject}"/></td>
 				<td class="text-center"><c:out value="${posts.user_name}"/></td>
@@ -34,6 +34,10 @@
 <script type="text/javascript">
 	document.getElementById("writebutton").onclick = function () {
 		location.href = "/board/writeform"
+	};
+	
+	function viewpost(id) {
+		location.href = "/board/view?id=" + id;
 	}
 </script>
 <jsp:include page="/WEB-INF/include/bottom.jsp" />

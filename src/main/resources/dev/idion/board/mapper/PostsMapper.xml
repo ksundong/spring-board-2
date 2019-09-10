@@ -38,4 +38,24 @@
               , 0, 0
              )
   </insert>
+  
+  <select id="viewPost" parameterType="int" resultType="HashMap">
+    SELECT  pst.id
+          , pst.subject
+          , pst.content
+          , DATE_FORMAT(pst.updated_datetime, "%Y-%m-%d %H:%i:%s") AS updated_datetime
+          , usr.user_name
+          , pst.hit
+      FROM posts pst
+          ,user  usr
+     WHERE 1 = 1
+       AND pst.id = #{id}
+       AND pst.updated_user_id = usr.user_id
+  </select>
+  
+  <update id="updateHit" parameterType="int">
+    UPDATE posts
+       SET hit = hit + 1
+     WHERE id = #{id}
+  </update>
 </mapper>

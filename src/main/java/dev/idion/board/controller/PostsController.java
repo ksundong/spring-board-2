@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -53,6 +54,15 @@ public class PostsController {
 			}
 		}
 		return new ModelAndView("redirect:/board/");
+	}
+
+	@GetMapping(value = "/view")
+	public ModelAndView viewPost(@RequestParam int id) {
+		log.info("View Post Number " + id);
+		ModelAndView modelAndView = new ModelAndView("viewer");
+		postsService.updateHit(id);
+		modelAndView.addObject("post", postsService.viewPost(id));
+		return modelAndView;
 	}
 
 }

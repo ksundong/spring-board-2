@@ -30,4 +30,13 @@ public class PostsService {
 		return postsMapper.checkWriter(param);
 	}
 
+	public Map<String, Object> viewPost(int id) {
+		return postsMapper.viewPost(id);
+	}
+
+	@Transactional
+	public int updateHit(int id) {
+		return postsMapper.updateHit(id);
+	}
+
 }

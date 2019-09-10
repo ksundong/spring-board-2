@@ -11,4 +11,8 @@ public interface PostsMapper {
 
 	int checkWriter(Map<String, Object> map);
 
+	Map<String, Object> viewPost(int id);
+
+	int updateHit(int id);
+
 }
