@@ -20,7 +20,13 @@
 			<textarea class="form-control" id="content" name="content" rows="20"></textarea>
 		</div>
 		<button class="btn btn-primary float-right" id="postbutton">Post</button>
+		<button id="listbutton" class="btn btn-success float-right mr-1">List</button>
 	</form>
 </div>
 <!-- Optional Javascript -->
+<script type="text/javascript">
+	document.getElementById("listbutton").onclick = function () {
+		location.href = "/board/list"
+	};
+</script>
 <jsp:include page="/WEB-INF/include/bottom.jsp" />
