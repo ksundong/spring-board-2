@@ -9,12 +9,14 @@
 	<hr>
 	<p class="text-info">Posted on ${post.updated_datetime}</p>
 	<hr>
-	<p class="lead">
+	<p class="lead text-break">
 		${post.content}
 	</p>
 	<hr>
 	<button id="listbutton" class="btn btn-success float-right">List</button>
+	<button id="modifybutton" class="btn btn-warning float-right mr-1">Modify</button>
 </div>
+<div style="height: 100px; clear: both;"> </div>
 <!-- Optional Javascript -->
 <script type="text/javascript">
 	document.getElementById("listbutton").onclick = function () {
