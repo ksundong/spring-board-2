@@ -16,6 +16,12 @@
        ORDER BY id DESC
   </select>
   
+  <select id="checkWriter" parameterType="HashMap" resultType="int">
+      SELECT COUNT(*)
+        FROM user
+       WHERE user_name = #{writer}
+  </select>
+  
   <insert id="insertPost" parameterType="HashMap">
       INSERT INTO posts (
                            parent_id, depth, board_id

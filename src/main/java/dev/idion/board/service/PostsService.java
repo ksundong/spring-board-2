@@ -22,8 +22,12 @@ public class PostsService {
 	}
 
 	@Transactional
-	public boolean insertPost(Map<String, Object> param) {
-		return postsMapper.insertPost(param) > 0;
+	public void insertPost(Map<String, Object> param) {
+		postsMapper.insertPost(param);
+	}
+
+	public int checkWriter(Map<String, Object> param) {
+		return postsMapper.checkWriter(param);
 	}
 
 }

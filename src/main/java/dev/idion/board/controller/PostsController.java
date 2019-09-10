@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+import static dev.idion.util.RequstParamPost.requestParamMap;
+
 @Controller
 @RequestMapping("/board/*")
 @Slf4j
@@ -43,17 +45,14 @@ public class PostsController {
 		log.info("Start insertPost, Subject: " + param.get("subject")
 				+ " Writer: " + param.get("writer")
 				+ " Content: " + param.get("content"));
-		try {
-			postsService.insertPost(param);
-		} catch (Exception e) {
-			log.error(String.valueOf(e));
+		if (postsService.checkWriter(param) == 1) {
+			try {
+				postsService.insertPost(param);
+			} catch (Exception e) {
+				log.error(String.valueOf(e));
+			}
 		}
 		return new ModelAndView("redirect:/board/");
 	}
 
-	private void requestParamMap(HttpServletRequest request, Map<String, Object> param) {
-		for (String s : request.getParameterMap().keySet()) {
-			param.put(s, request.getParameter(s));
-		}
-	}
 }

@@ -9,4 +9,6 @@ public interface PostsMapper {
 
 	int insertPost(Map<String, Object> map);
 
+	int checkWriter(Map<String, Object> map);
+
 }
