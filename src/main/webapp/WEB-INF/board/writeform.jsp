@@ -19,13 +19,13 @@
 			<label for="content">Content</label>
 			<textarea class="form-control" id="content" name="content" rows="20"></textarea>
 		</div>
-		<button class="btn btn-primary float-right" id="postbutton">Post</button>
-		<button id="listbutton" class="btn btn-success float-right mr-1">List</button>
+		<button type="button" id="cancelbutton" class="btn btn-secondary float-right">Cancel</button>
+		<button class="btn btn-primary float-right mr-1" id="postbutton">Post</button>
 	</form>
 </div>
 <!-- Optional Javascript -->
 <script type="text/javascript">
-	document.getElementById("listbutton").onclick = function () {
+	document.getElementById("cancelbutton").onclick = function () {
 		location.href = "/board/list"
 	};
 </script>
