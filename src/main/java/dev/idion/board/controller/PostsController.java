@@ -24,7 +24,7 @@ public class PostsController {
 	@Resource
 	private PostsService postsService;
 
-	@GetMapping(value = { "", "/index", "/list"})
+	@GetMapping(value = { "/", "/index", "/list"})
 	public ModelAndView list() {
 		log.info("Access Post List");
 		ModelAndView modelAndView = new ModelAndView("posts");
