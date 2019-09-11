@@ -50,7 +50,7 @@ public class PostsController {
 			try {
 				postsService.insertPost(param);
 			} catch (Exception e) {
-				log.error(String.valueOf(e));
+				log.error(e.getMessage());
 			}
 		}
 		return new ModelAndView("redirect:/board/");
@@ -84,7 +84,7 @@ public class PostsController {
 		try {
 			postsService.updatePost(param);
 		} catch (Exception e) {
-			log.error(String.valueOf(e));
+			log.error(e.getMessage());
 		}
 		return new ModelAndView("redirect:/board/view?id=" + param.get("postid"));
 	}
@@ -95,7 +95,7 @@ public class PostsController {
 		try {
 			postsService.deletePost(id);
 		} catch (Exception e) {
-			log.error(String.valueOf(e));
+			log.error(e.getMessage());
 		}
 		return new ModelAndView("redirect:/board/");
 	}

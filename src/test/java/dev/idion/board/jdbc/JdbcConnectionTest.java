@@ -15,7 +15,7 @@ public class JdbcConnectionTest {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 		} catch (Exception e) {
-			log.error(String.valueOf(e));
+			log.error(e.getMessage());
 		}
 	}
 
@@ -27,7 +27,7 @@ public class JdbcConnectionTest {
 				,"")) {
 			log.info(String.valueOf(connection));
 		} catch (Exception e) {
-			log.error(String.valueOf(e));
+			log.error(e.getMessage());
 			fail(e.getMessage());
 		}
 	}
