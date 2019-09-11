@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "dev.idion.board" })
+@ComponentScan(basePackages = { "dev.idion.board", "dev.idion.error" })
 @MapperScan("dev.idion.board.mapper")
 public class ServletConfig implements WebMvcConfigurer {
 
