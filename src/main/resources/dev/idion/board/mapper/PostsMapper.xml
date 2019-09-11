@@ -13,6 +13,7 @@
             ,user  usr
        WHERE 1 = 1
          AND pst.updated_user_id = usr.user_id
+         AND !pst.removed
        ORDER BY id DESC
   </select>
   
@@ -68,9 +69,10 @@
        AND id = #{postid}
   </update>
   
-  <delete id="deletePost" parameterType="int">
-    DELETE FROM posts
+  <update id="deletePost" parameterType="int">
+    UPDATE posts
+       SET removed = 1
      WHERE 1 = 1
        AND id = #{id}
-  </delete>
+  </update>
 </mapper>
