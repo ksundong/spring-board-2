@@ -28,7 +28,7 @@
                          , subject, content
                          , created_datetime, created_user_id
                          , updated_datetime, updated_user_id
-                         , hit, `delete`
+                         , hit, removed
                         )
       VALUES (
                 0, 0, 1

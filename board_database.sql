@@ -22,7 +22,7 @@ CREATE TABLE `posts` (
 	`updated_datetime` DATETIME NOT NULL,
 	`updated_user_id` INT(10) UNSIGNED NOT NULL,
 	`hit` INT(10) UNSIGNED NOT NULL DEFAULT 0,
-	`delete` TINYINT(1) NOT NULL DEFAULT 0,
+	`removed` TINYINT(1) NOT NULL DEFAULT 0,
 	`thumbnail_id` INT(10) UNSIGNED NULL DEFAULT NULL,
 	`file_id` INT(10) UNSIGNED NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
@@ -42,7 +42,7 @@ CREATE TABLE `user` (
 	`authorization` TINYINT(1) NOT NULL DEFAULT 0,
 	`retry_count` SMALLINT(6) NOT NULL DEFAULT 0,
 	`password_reset` TINYINT(1) NOT NULL DEFAULT 0,
-	`delete` TINYINT(1) NOT NULL DEFAULT 0,
+	removed TINYINT(1) NOT NULL DEFAULT 0,
 	PRIMARY KEY (`user_id`),
 	UNIQUE INDEX `login_id` (`login_id`),
 	UNIQUE INDEX `user_name` (`user_name`),
