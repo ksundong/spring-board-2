@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="/WEB-INF/include/top.jsp" />
+<input type="hidden" id="postid" value="${post.id}">
 <div class="container">
 	<h1 class="mt-4">${post.subject}</h1>
 	<p class="lead">by
@@ -19,8 +20,15 @@
 <div style="height: 100px; clear: both;"> </div>
 <!-- Optional Javascript -->
 <script type="text/javascript">
+	var postid;
+	document.addEventListener("DOMContentLoaded", function () {
+		postid = document.getElementById("postid").value;
+	});
 	document.getElementById("listbutton").onclick = function () {
 		location.href = "/board/list"
+	};
+	document.getElementById("modifybutton").onclick = function () {
+		location.href = "/board/modify/?id=" + postid
 	};
 </script>
 <jsp:include page="/WEB-INF/include/bottom.jsp" />

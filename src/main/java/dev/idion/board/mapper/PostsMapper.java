@@ -15,4 +15,6 @@ public interface PostsMapper {
 
 	int updateHit(int id);
 
+	int updatePost(Map<String, Object> map);
+
 }

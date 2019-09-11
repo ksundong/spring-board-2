@@ -65,4 +65,28 @@ public class PostsController {
 		return modelAndView;
 	}
 
+	@GetMapping(value = "/modify")
+	public ModelAndView modifyForm(@RequestParam int id) {
+		log.info("Modify Post Number " + id);
+		ModelAndView modelAndView = new ModelAndView("modifyform");
+		modelAndView.addObject("post", postsService.viewPost(id));
+		return modelAndView;
+	}
+
+	@PostMapping(value = "/updatepost")
+	public ModelAndView updatePost(HttpServletRequest request) {
+		Map<String, Object> param = new HashMap<>();
+		requestParamMap(request, param);
+
+		log.info("Start updatePost, Subject: " + param.get("subject")
+				+ " Content: " + param.get("content")
+				+ " Post id: " + param.get("postid"));
+		try {
+			postsService.updatePost(param);
+		} catch (Exception e) {
+			log.error(String.valueOf(e));
+		}
+		return new ModelAndView("redirect:/board/view?id=" + param.get("postid"));
+	}
+
 }

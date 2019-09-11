@@ -39,4 +39,9 @@ public class PostsService {
 		return postsMapper.updateHit(id);
 	}
 
+	@Transactional
+	public int updatePost(Map<String, Object> param) {
+		return postsMapper.updatePost(param);
+	}
+
 }

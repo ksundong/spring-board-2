@@ -58,4 +58,13 @@
        SET hit = hit + 1
      WHERE id = #{id}
   </update>
+  
+  <update id="updatePost" parameterType="HashMap">
+    UPDATE posts
+       SET  subject = #{subject}
+          , content = #{content}
+          , updated_datetime = NOW()
+     WHERE 1 = 1
+       AND id = #{postid}
+  </update>
 </mapper>
