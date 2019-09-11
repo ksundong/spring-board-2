@@ -17,4 +17,6 @@ public interface PostsMapper {
 
 	int updatePost(Map<String, Object> map);
 
+	int deletePost(int id);
+
 }

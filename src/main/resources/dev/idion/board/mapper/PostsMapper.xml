@@ -67,4 +67,10 @@
      WHERE 1 = 1
        AND id = #{postid}
   </update>
+  
+  <delete id="deletePost" parameterType="int">
+    DELETE FROM posts
+     WHERE 1 = 1
+       AND id = #{id}
+  </delete>
 </mapper>

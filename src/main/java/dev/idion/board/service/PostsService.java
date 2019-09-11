@@ -44,4 +44,9 @@ public class PostsService {
 		return postsMapper.updatePost(param);
 	}
 
+	@Transactional
+	public int deletePost(int id) {
+		return postsMapper.deletePost(id);
+	}
+
 }

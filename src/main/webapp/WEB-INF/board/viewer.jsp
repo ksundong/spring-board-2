@@ -16,6 +16,7 @@
 	<hr>
 	<button id="listbutton" class="btn btn-success float-right">List</button>
 	<button id="modifybutton" class="btn btn-warning float-right mr-1">Modify</button>
+	<button id="deletebutton" class="btn btn-danger float-right mr-1">Delete</button>
 </div>
 <div style="height: 100px; clear: both;"> </div>
 <!-- Optional Javascript -->
@@ -29,6 +30,13 @@
 	};
 	document.getElementById("modifybutton").onclick = function () {
 		location.href = "/board/modify/?id=" + postid
+	};
+	document.getElementById("deletebutton").onclick = function () {
+		if ( confirm("Are you sure to delete this post?") ) {
+			location.href = "/board/deletepost/?id=" + postid;
+		} else {
+			alert("The delete was canceled.");
+		}
 	};
 </script>
 <jsp:include page="/WEB-INF/include/bottom.jsp" />

@@ -89,4 +89,15 @@ public class PostsController {
 		return new ModelAndView("redirect:/board/view?id=" + param.get("postid"));
 	}
 
+	@GetMapping(value = "/deletepost")
+	public ModelAndView deletePost(@RequestParam int id) {
+		log.info("Delete Process started... PostNumber: " + id);
+		try {
+			postsService.deletePost(id);
+		} catch (Exception e) {
+			log.error(String.valueOf(e));
+		}
+		return new ModelAndView("redirect:/board/");
+	}
+
 }
